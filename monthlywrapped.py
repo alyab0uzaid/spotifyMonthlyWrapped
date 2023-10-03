@@ -9,12 +9,12 @@ app.config['SESSION_COOKIE_NAME'] = 'Spotify Cookie'
 app.secret_key = 'asfh98A%#$%lkhsfdfkjh'
 TOKEN_INFO = 'token_info'
 
-# Your Spotify API credentials
+# Spotify API credentials
 SPOTIPY_CLIENT_ID = "b942a9a67d25444ebce84f5150134c1e"
 SPOTIPY_CLIENT_SECRET = "3269f3e727804ec5b34c72d93f842ccf"
 SPOTIPY_REDIRECT_URI = "http://127.0.0.1:5000/redirect"
 
-# Your desired playlist name
+
 PLAYLIST_NAME = "Your Top Songs"
 
 @app.route('/')
@@ -40,12 +40,12 @@ def save_wrapped():
     
     sp = spotipy.Spotify(auth=token_info['access_token'])
     
-    # Create a new playlist with your top songs
+    # Create a new playlist with top songs
     create_playlist_with_top_songs(sp)
     
     return "Playlist created successfully!"
 
-# Function to create a new playlist with your top songs
+# Function to create a new playlist with top songs
 def create_playlist_with_top_songs(sp):
     # Get the user's ID
     user_id = sp.me()['id']
@@ -54,7 +54,7 @@ def create_playlist_with_top_songs(sp):
     playlist = sp.user_playlist_create(user_id, PLAYLIST_NAME, public=False)
     playlist_id = playlist['id']
     
-    # Get the top songs (you can adjust the time range and limit)
+    # Get the top songs 
     top_tracks = get_top_tracks(sp)
     
     # Add the top songs to the playlist
