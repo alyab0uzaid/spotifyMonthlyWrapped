@@ -15,7 +15,7 @@ SPOTIPY_CLIENT_SECRET = "3269f3e727804ec5b34c72d93f842ccf"
 SPOTIPY_REDIRECT_URI = "http://127.0.0.1:5000/redirect"
 
 
-PLAYLIST_NAME = "Your Top Songs"
+PLAYLIST_NAME = "Last Month's Top Songs"
 
 @app.route('/')
 def login():
